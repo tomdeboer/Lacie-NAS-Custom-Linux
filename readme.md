@@ -21,4 +21,5 @@ In addition, I'm going to use it for some home projects and automation, modding 
 At this point the repos is quite empty and most kernel settings are set to their defaults. A lot of manual work is also needed to setup buildroot. This will soon change as I add little scripts to automate most tasks. A lot like [Orange Tux did in his repo](https://hub.docker.com/r/orangetux/buildroot/).
 
 <img src="http://scriptkiller.de/pics/lacie_d2_network_2/small/top_with_disk.jpg" alt="Lacie D2 Network V2 Board" style="max-width: 100%;"/>
+
 It's quite clean and it's built out of aluminium. The blue light has an extra red LED next to it and it works a button attached to one of the GPIO. This is what the Lacie looks like on the inside. 
