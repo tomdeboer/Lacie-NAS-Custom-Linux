@@ -16,6 +16,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y git bc ncurses-
 VOLUME /kerneldev
 EXPOSE 111 2049
 
+ADD run-debootstrap.sh /files/run-debootstrap.sh
+ADD run-chroot.sh /files/run-chroot.sh
+
 
 # Some random comments...
 #debootstrap --arch=armel --variant=minbase --verbose --foreign jessie rootfs http://ftp.debian.org/debian
