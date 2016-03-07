@@ -1,21 +1,16 @@
-
 FROM ubuntu:14.04
 MAINTAINER Tom de Boer <tom@tomdeboer.nl>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Precice universe is needed for qemu-kvm-extras-static
-RUN echo "\n\n# For Qemu:\ndeb http://archive.ubuntu.com/ubuntu/ precise main universe" >> /etc/apt/sources.list; \
-	apt-get update && apt-get install --no-install-recommends -y debootstrap nfs-kernel-server qemu-kvm-extras-static binfmt-support; \
+RUN apt-get update && apt-get install --no-install-recommends -y git bc ncurses-dev make gcc libssl-dev u-boot-tools gcc-arm-linux-gnueabi ; \
 	apt-get clean; \
-	mkdir -p /files/rootfs; \
-	echo "/files/rootfs *(rw,sync,no_subtree_check,fsid=0,no_root_squash)" >> /etc/exports
+	mkdir -p /buildenv && cd /buildenv; \
+	git clone --depth=1 git clone git://git.buildroot.net/buildroot; \
+	
+VOLUME /buildenv
 
-#RUN service rpcbind start
-#RUN service nfs-kernel-server start
 
-VOLUME /files
-EXPOSE 111 2049
 
 
 # Some random comments...
