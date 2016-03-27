@@ -3,8 +3,9 @@ MAINTAINER Tom de Boer <tom@tomdeboer.nl>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install --no-install-recommends -y git bc ncurses-dev make gcc libssl-dev u-boot-tools gcc-arm-linux-gnueabi ; \
+RUN apt-get update && apt-get install --no-install-recommends -y git bc ncurses-dev make gcc libssl-dev u-boot-tools gcc-arm-linux-gnueabi texinfo; \
 	apt-get clean; \
+	locale-gen en_GB.UTF-8 && locale-gen –no-purge –lang en_GB.UTF-8
 	mkdir -p /buildenv && cd /buildenv; \
 	git clone --depth=1 git clone git://git.buildroot.net/buildroot; \
 	
