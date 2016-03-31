@@ -1,0 +1,3 @@
+# Dot not probe
+# Plus additional -- to mark the end of start-stop-daemon's arguments
+NETPLUGDARGS="-- -P"
