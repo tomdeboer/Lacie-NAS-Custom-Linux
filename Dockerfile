@@ -1,13 +1,16 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Tom de Boer <tom@tomdeboer.nl>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install --no-install-recommends -y git bc ncurses-dev make gcc libssl-dev u-boot-tools gcc-arm-linux-gnueabi texinfo; \
-	apt-get clean; \
-	locale-gen en_GB.UTF-8 && locale-gen –no-purge –lang en_GB.UTF-8
-	mkdir -p /buildenv && cd /buildenv; \
-	git clone --depth=1 git clone git://git.buildroot.net/buildroot; \
+RUN apt-get update && apt-get install --no-install-recommends -y git bc ncurses-dev make \
+	gcc libssl-dev u-boot-tools gcc-arm-linux-gnueabi texinfo file g++ patch wget cpio python unzip rsync bzcat locales; \
+	apt-get clean;
+
+RUN	locale-gen en_GB.UTF-8 && locale-gen –no-purge –lang en_GB.UTF-8; \
+
+RUN mkdir -p /buildenv && cd /buildenv; \
+	git clone --depth=1 git://git.buildroot.net/buildroot;
 	
 VOLUME /buildenv
 
